@@ -17,66 +17,47 @@
             overflow-x: hidden;
         }
 
-        /* Header Styles */
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 20px;
+        /* Header Section */
+        .header-container {
             background-color: #fff;
+            padding: 10px 20px;
+            text-align: center;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             position: fixed;
             width: 100%;
+            top: 0;
             z-index: 10;
         }
 
         .logo {
-            font-size: 24px;
+            font-size: 30px;
             font-weight: bold;
             color: #333;
         }
 
-        .menu {
-            font-size: 18px;
-            cursor: pointer;
+        .logo .h-large {
+            font-size: 50px;
         }
 
-        /* Sidebar Menu */
-        .sidebar {
-            position: fixed;
-            top: 0;
-            left: -300px;
-            width: 300px;
-            height: 100%;
-            background-color: #f9f9f9;
-            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
-            padding: 20px;
-            transition: left 0.3s ease;
+        .search-bar {
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
         }
 
-        .sidebar.open {
-            left: 0;
+        .search-bar input {
+            width: 90%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
         }
 
-        .sidebar ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .sidebar ul li {
-            margin: 20px 0;
-        }
-
-        .sidebar ul li a {
-            text-decoration: none;
-            font-size: 18px;
-            color: #333;
-        }
-
-        /* Banner Section Styles */
+        /* Banner Section */
         .banner {
-            margin-top: 70px;
+            margin-top: 120px;
             width: 100%;
+            height: 400px;
             overflow: hidden;
             position: relative;
         }
@@ -84,21 +65,13 @@
         .carousel {
             display: flex;
             width: 400%;
-            animation: slide 8s infinite;
+            animation: none;
         }
 
         .carousel img {
             width: 100%;
             height: 400px;
             object-fit: cover;
-        }
-
-        @keyframes slide {
-            0% { transform: translateX(0); }
-            25% { transform: translateX(-100%); }
-            50% { transform: translateX(-200%); }
-            75% { transform: translateX(-300%); }
-            100% { transform: translateX(0); }
         }
 
         /* Products Section */
@@ -136,11 +109,6 @@
             margin: 10px 0;
         }
 
-        .product-item p {
-            font-size: 16px;
-            color: #555;
-        }
-
         .product-item .price {
             font-weight: bold;
             color: #000;
@@ -172,28 +140,19 @@
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="logo">The H Hub</div>
-        <div class="menu" onclick="toggleSidebar()">☰</div>
-    </header>
-
-    <!-- Sidebar -->
-    <div class="sidebar" id="sidebar">
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Orders</a></li>
-            <li><a href="#">Cart</a></li>
-            <li><a href="#">H Coins</a></li>
-            <li><a href="#">History</a></li>
-            <li><a href="#">Wishlist</a></li>
-            <li><a href="#">Account</a></li>
-        </ul>
+    <!-- Header Section -->
+    <div class="header-container">
+        <div class="logo">
+            <span class="h-large">H</span>ub
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Search for products, brands, and more">
+        </div>
     </div>
 
     <!-- Banner Section -->
     <section class="banner">
-        <div class="carousel">
+        <div class="carousel" id="carousel">
             <img src="images/banner.png" alt="Banner 1">
             <img src="images/banner1.png" alt="Banner 2">
             <img src="images/banner2.png" alt="Banner 3">
@@ -249,10 +208,13 @@
     </div>
 
     <script>
-        function toggleSidebar() {
-            const sidebar = document.getElementById('sidebar');
-            sidebar.classList.toggle('open');
-        }
+        const carousel = document.getElementById('carousel');
+        let index = 0;
+
+        setInterval(() => {
+            index = (index + 1) % 4; // Total 4 images
+            carousel.style.transform = `translateX(-${index * 100}%)`;
+        }, 3000); // Change image every 3 seconds
     </script>
 </body>
-        </html>
+    </html>
