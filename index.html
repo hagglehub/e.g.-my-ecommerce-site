@@ -30,18 +30,18 @@
         }
 
         .logo {
-            font-size: 30px;
+            font-size: 24px;
             font-weight: bold;
             color: #333;
             display: flex;
             justify-content: center;
             align-items: center;
+            flex-direction: column;
         }
 
         .logo .h {
             font-size: 50px;
             color: #ffc107;
-            margin-right: 5px;
         }
 
         .search-bar {
@@ -161,27 +161,23 @@
 
     <!-- Products Section -->
     <div class="products-section">
-        <h2 style="text-align: center;">Featured Products</h2>
+        <h2>Featured Products</h2>
         <div class="products-grid">
             <div class="product-item">
                 <img src="product1.png" alt="Product 1">
                 <p>Product 1</p>
-                <p>$99.99</p>
             </div>
             <div class="product-item">
                 <img src="product2.png" alt="Product 2">
                 <p>Product 2</p>
-                <p>$79.99</p>
             </div>
             <div class="product-item">
                 <img src="product3.png" alt="Product 3">
                 <p>Product 3</p>
-                <p>$49.99</p>
             </div>
             <div class="product-item">
                 <img src="product4.png" alt="Product 4">
                 <p>Product 4</p>
-                <p>$39.99</p>
             </div>
         </div>
     </div>
@@ -207,16 +203,16 @@
     </div>
 
     <script>
-        // JavaScript for Banner Slider
-        const banners = document.querySelectorAll('.carousel img');
+        // Carousel Logic
+        const images = document.querySelectorAll('.carousel img');
         let currentIndex = 0;
 
         setInterval(() => {
-            banners[currentIndex].classList.remove('active');
-            currentIndex = (currentIndex + 1) % banners.length;
-            banners[currentIndex].classList.add('active');
+            images[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex + 1) % images.length;
+            images[currentIndex].classList.add('active');
         }, 3000);
     </script>
 
 </body>
-            </html>
+        </html>
