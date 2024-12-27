@@ -85,3 +85,138 @@ footer {
     text-align: center;
     padding: 20px 0;
 }
+/* Hamburger Menu */
+.hamburger-menu {
+    font-size: 30px;
+    cursor: pointer;
+    color: #FFF;
+}
+/* Side Menu (hidden initially) */
+.side-menu {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    background-color: #002855;
+    transition: 0.3s ease;
+    padding-top: 50px;
+}
+
+.side-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.side-menu ul li {
+    padding: 10px;
+    text-align: left;
+}
+
+.side-menu ul li a {
+    color: #FFC107;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Active Menu (when open) */
+.side-menu.open {
+    left: 0;
+}
+
+.side-menu ul li a:hover {
+    text-decoration: underline;
+}
+/* Site Name Styling */
+.site-name {
+    font-size: 2.5em;
+    text-align: center;
+}
+
+.big-h {
+    font-size: 3.5em;
+    font-family: 'Arial Black', sans-serif; /* You can choose any unique font */
+    color: #FFC107;
+}
+/* Sliding Images Section */
+.sliding-images {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    margin-top: 20px;
+}
+
+.slider {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.slider img {
+    width: 100%;
+    height: auto;
+}
+
+@keyframes slide {
+    0% { transform: translateX(0); }
+    33% { transform: translateX(-100%); }
+    66% { transform: translateX(-200%); }
+    100% { transform: translateX(0); }
+}
+
+.slider {
+    animation: slide 10s infinite;
+    }
+/* Categories Section */
+.categories {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.category-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.category-btn {
+    background-color: #FFC107;
+    border: none;
+    color: white;
+    padding: 15px;
+    border-radius: 50%;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.category-btn:hover {
+    background-color: #002855;
+    }
+/* Bottom Options */
+.bottom-options {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #002855;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.bottom-options ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.bottom-options ul li a {
+    color: #FFC107;
+    text-decoration: none;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.bottom-options ul li a:hover {
+    text-decoration: underline;
+        }
