@@ -41,18 +41,6 @@
             border: 1px solid #ddd;
         }
 
-        /* Navigation Styles */
-        nav ul {
-            display: flex;
-            gap: 20px;
-        }
-
-        nav ul li a {
-            text-decoration: none;
-            color: #333;
-            font-weight: bold;
-        }
-
         /* Menu (Hamburger) */
         .menu {
             display: none;
@@ -92,25 +80,24 @@
         /* Banner Section Styles */
         .banner {
             width: 100%;
-            height: 400px;
-            background-color: #f1f1f1;
+            height: auto;
             display: flex;
             justify-content: center;
             align-items: center;
             overflow: hidden;
+            position: relative;
+        }
+
+        .carousel {
+            display: flex;
+            width: 100%;
+            transition: transform 1s ease-in-out;
         }
 
         .carousel img {
             width: 100%;
-            height: 100%;
+            height: auto;
             object-fit: cover;
-            transition: transform 1s ease-in-out;
-        }
-
-        /* Categories Section Styles */
-        .categories {
-            text-align: center;
-            padding: 20px;
         }
 
         /* Featured Products Section Styles */
@@ -121,7 +108,7 @@
 
         .product-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             gap: 20px;
         }
 
@@ -159,6 +146,12 @@
             justify-content: space-around;
             padding: 20px;
             background-color: #fff;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            z-index: 10;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
         }
 
         .icon-item {
@@ -186,14 +179,6 @@
         <div class="search-bar">
             <input type="text" placeholder="Search for products, brands, and more">
         </div>
-        <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Orders</a></li>
-                <li><a href="#">Cart</a></li>
-                <li><a href="#">Account</a></li>
-            </ul>
-        </nav>
         <div class="menu-button" onclick="toggleMenu()">☰</div>
     </header>
 
@@ -214,6 +199,7 @@
             <img src="images/Banner.png" alt="Banner 1">
             <img src="images/Banner2.png" alt="Banner 2">
             <img src="images/Banner3.png" alt="Banner 3">
+            <img src="images/Banner4.png" alt="Banner 4">
         </div>
     </section>
 
@@ -283,7 +269,15 @@
                 menu.style.display = "block";
             }
         }
+
+        // Carousel functionality to slide images (auto scroll or manual can be added here)
+        let currentIndex = 0;
+        const images = document.querySelectorAll('.carousel img');
+        setInterval(function() {
+            currentIndex = (currentIndex + 1) % images.length;
+            document.querySelector('.carousel').style.transform = `translateX(-${currentIndex * 100}%)`;
+        }, 3000);
     </script>
 
 </body>
-                </html>
+        </html>
