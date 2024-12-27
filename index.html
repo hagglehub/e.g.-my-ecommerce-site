@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The H Hub - Your Marketplace</title>
+    <title>The H Hub</title>
     <style>
         /* Basic Reset */
         * {
@@ -12,11 +12,9 @@
             box-sizing: border-box;
         }
 
-        /* Body Styles */
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            overflow-x: hidden; /* Prevent horizontal scrolling */
+            overflow-x: hidden;
         }
 
         /* Header Styles */
@@ -27,89 +25,105 @@
             padding: 10px 20px;
             background-color: #fff;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 10;
         }
 
-        .logo h1 {
+        .logo {
             font-size: 24px;
+            font-weight: bold;
             color: #333;
         }
 
-        .search-bar input {
-            padding: 10px;
-            width: 250px;
-            border-radius: 5px;
-            border: 1px solid #ddd;
-        }
-
-        /* Menu (Hamburger) */
         .menu {
-            display: none;
-        }
-
-        .menu-button {
-            display: block;
-            font-size: 20px;
+            font-size: 18px;
             cursor: pointer;
         }
 
-        .menu-content {
-            display: none;
-            position: absolute;
-            left: 0;
+        /* Sidebar Menu */
+        .sidebar {
+            position: fixed;
             top: 0;
-            background-color: rgba(0, 0, 0, 0.8);
-            color: white;
-            width: 250px;
-            height: 100vh;
+            left: -300px;
+            width: 300px;
+            height: 100%;
+            background-color: #f9f9f9;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
             padding: 20px;
-            z-index: 1;
-            overflow-y: auto;
+            transition: left 0.3s ease;
         }
 
-        .menu-content a {
-            color: white;
-            display: block;
-            padding: 10px;
+        .sidebar.open {
+            left: 0;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            margin: 20px 0;
+        }
+
+        .sidebar ul li a {
             text-decoration: none;
-        }
-
-        .menu-content a:hover {
-            background-color: #444;
+            font-size: 18px;
+            color: #333;
         }
 
         /* Banner Section Styles */
         .banner {
+            margin-top: 70px;
             width: 100%;
-            height: auto;
-            display: flex;
-            justify-content: center;
-            align-items: center;
             overflow: hidden;
             position: relative;
         }
 
         .carousel {
             display: flex;
-            width: 100%;
-            transition: transform 1s ease-in-out;
+            width: 400%;
+            animation: slide 8s infinite;
         }
 
         .carousel img {
             width: 100%;
-            height: auto;
+            height: 400px;
             object-fit: cover;
         }
 
-        /* Featured Products Section Styles */
-        .featured-products {
-            text-align: center;
+        @keyframes slide {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(-100%); }
+            50% { transform: translateX(-200%); }
+            75% { transform: translateX(-300%); }
+            100% { transform: translateX(0); }
+        }
+
+        /* Products Section */
+        .products {
             padding: 20px;
+            text-align: center;
+        }
+
+        .products h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #333;
         }
 
         .product-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            grid-template-columns: repeat(2, 1fr);
             gap: 20px;
+        }
+
+        .product-item {
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
         .product-item img {
@@ -117,170 +131,128 @@
             border-radius: 10px;
         }
 
-        /* Footer Section Styles */
-        footer {
-            background-color: #333;
-            color: #fff;
-            padding: 20px;
-            text-align: center;
+        .product-item h3 {
+            font-size: 18px;
+            margin: 10px 0;
         }
 
-        footer ul {
-            list-style-type: none;
-            padding: 0;
+        .product-item p {
+            font-size: 16px;
+            color: #555;
         }
 
-        footer ul li {
-            display: inline;
-            margin: 0 10px;
+        .product-item .price {
+            font-weight: bold;
+            color: #000;
         }
 
-        footer ul li a {
-            text-decoration: none;
-            color: #fff;
-        }
-
-        /* Icon Grid at Bottom */
-        .icon-grid {
-            display: flex;
-            justify-content: space-around;
-            padding: 20px;
-            background-color: #fff;
+        /* Footer Navigation */
+        .footer-nav {
             position: fixed;
             bottom: 0;
-            left: 0;
             width: 100%;
-            z-index: 10;
+            background-color: #fff;
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 0;
             box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
         }
 
-        .icon-item {
+        .footer-nav div {
             text-align: center;
-        }
-
-        .icon-item img {
-            width: 50px;
-            height: 50px;
-        }
-
-        .icon-item p {
-            margin-top: 5px;
             font-size: 14px;
+            color: #555;
+        }
+
+        .footer-nav div img {
+            width: 30px;
+            height: 30px;
+            margin-bottom: 5px;
         }
     </style>
 </head>
 <body>
-
-    <!-- Header Section -->
+    <!-- Header -->
     <header>
-        <div class="logo">
-            <h1>The H Hub</h1> <!-- Your store name here -->
-        </div>
-        <div class="search-bar">
-            <input type="text" placeholder="Search for products, brands, and more">
-        </div>
-        <div class="menu-button" onclick="toggleMenu()">☰</div>
+        <div class="logo">The H Hub</div>
+        <div class="menu" onclick="toggleSidebar()">☰</div>
     </header>
 
-    <!-- Menu Content (Hamburger) -->
-    <div class="menu-content" id="menu-content">
-        <a href="#">Home</a>
-        <a href="#">Orders</a>
-        <a href="#">Cart</a>
-        <a href="#">Account</a>
-        <a href="#">History</a>
-        <a href="#">Wishlist</a>
-        <a href="#">H Coins</a>
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Orders</a></li>
+            <li><a href="#">Cart</a></li>
+            <li><a href="#">H Coins</a></li>
+            <li><a href="#">History</a></li>
+            <li><a href="#">Wishlist</a></li>
+            <li><a href="#">Account</a></li>
+        </ul>
     </div>
 
-    <!-- Main Banner Section (Carousel) -->
+    <!-- Banner Section -->
     <section class="banner">
         <div class="carousel">
-            <!-- Replace the following image links with your actual image links -->
-            <img src="https://via.placeholder.com/1200x400.png?text=Banner+1" alt="Banner 1">
-            <img src="https://via.placeholder.com/1200x400.png?text=Banner+2" alt="Banner 2">
-            <img src="https://via.placeholder.com/1200x400.png?text=Banner+3" alt="Banner 3">
-            <img src="https://via.placeholder.com/1200x400.png?text=Banner+4" alt="Banner 4">
+            <img src="images/banner.png" alt="Banner 1">
+            <img src="images/banner1.png" alt="Banner 2">
+            <img src="images/banner2.png" alt="Banner 3">
+            <img src="images/banner3.png" alt="Banner 4">
         </div>
     </section>
 
-    <!-- Featured Products Section -->
-    <section class="featured-products">
+    <!-- Products Section -->
+    <section class="products">
         <h2>Featured Products</h2>
         <div class="product-grid">
-            <!-- Replace the following image links with your actual product image links -->
             <div class="product-item">
-                <img src="https://via.placeholder.com/250x250.png?text=Product+1" alt="Product 1">
-                <p>Product 1</p>
-                <p>$99.99</p>
+                <img src="images/product1.png" alt="Product 1">
+                <h3>Product 1</h3>
+                <p class="price">$99.99</p>
             </div>
             <div class="product-item">
-                <img src="https://via.placeholder.com/250x250.png?text=Product+2" alt="Product 2">
-                <p>Product 2</p>
-                <p>$79.99</p>
+                <img src="images/product2.png" alt="Product 2">
+                <h3>Product 2</h3>
+                <p class="price">$79.99</p>
             </div>
             <div class="product-item">
-                <img src="https://via.placeholder.com/250x250.png?text=Product+3" alt="Product 3">
-                <p>Product 3</p>
-                <p>$59.99</p>
+                <img src="images/product3.png" alt="Product 3">
+                <h3>Product 3</h3>
+                <p class="price">$59.99</p>
             </div>
             <div class="product-item">
-                <img src="https://via.placeholder.com/250x250.png?text=Product+4" alt="Product 4">
-                <p>Product 4</p>
-                <p>$49.99</p>
+                <img src="images/product4.png" alt="Product 4">
+                <h3>Product 4</h3>
+                <p class="price">$49.99</p>
             </div>
         </div>
     </section>
 
-    <!-- Icon Grid at the Bottom of the Screen -->
-    <div class="icon-grid">
-        <!-- Replace the following image links with your actual icon image links -->
-        <div class="icon-item">
-            <img src="https://via.placeholder.com/50x50.png?text=Order" alt="Orders">
+    <!-- Footer Navigation -->
+    <div class="footer-nav">
+        <div>
+            <img src="images/orders.png" alt="Orders">
             <p>Orders</p>
         </div>
-        <div class="icon-item">
-            <img src="https://via.placeholder.com/50x50.png?text=Cart" alt="Cart">
+        <div>
+            <img src="images/cart.png" alt="Cart">
             <p>Cart</p>
         </div>
-        <div class="icon-item">
-            <img src="https://via.placeholder.com/50x50.png?text=Coins" alt="H Coins">
+        <div>
+            <img src="images/coins.png" alt="H Coins">
             <p>H Coins</p>
         </div>
-        <div class="icon-item">
-            <img src="https://via.placeholder.com/50x50.png?text=History" alt="History">
+        <div>
+            <img src="images/history.png" alt="History">
             <p>History</p>
         </div>
     </div>
 
-    <!-- Footer Section -->
-    <footer>
-        <ul>
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Terms & Conditions</a></li>
-            <li><a href="#">Privacy Policy</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
-    </footer>
-
     <script>
-        function toggleMenu() {
-            var menu = document.getElementById('menu-content');
-            if (menu.style.display === "block") {
-                menu.style.display = "none";
-            } else {
-                menu.style.display = "block";
-            }
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('open');
         }
-
-        // Carousel functionality to slide images (auto scroll or manual can be added here)
-        let currentIndex = 0;
-        const images = document.querySelectorAll('.carousel img');
-        setInterval(function() {
-            currentIndex = (currentIndex + 1) % images.length;
-            document.querySelector('.carousel').style.transform = `translateX(-${currentIndex * 100}%)`;
-        }, 3000);
     </script>
-
 </body>
         </html>
