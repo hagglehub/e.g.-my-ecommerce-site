@@ -33,16 +33,19 @@
             font-size: 30px;
             font-weight: bold;
             color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
-        .logo .h-large {
+        .logo .h {
             font-size: 50px;
+            color: #ffc107;
+            margin-right: 5px;
         }
 
         .search-bar {
             margin-top: 10px;
-            display: flex;
-            justify-content: center;
         }
 
         .search-bar input {
@@ -62,74 +65,65 @@
             position: relative;
         }
 
-        .carousel {
-            display: flex;
-            width: 400%;
-            animation: none;
-        }
-
         .carousel img {
             width: 100%;
-            height: 400px;
+            height: 100%;
             object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .carousel img.active {
+            opacity: 1;
         }
 
         /* Products Section */
-        .products {
-            padding: 20px;
-            text-align: center;
+        .products-section {
+            margin: 20px;
         }
 
-        .products h2 {
-            margin-bottom: 20px;
-            font-size: 24px;
-            color: #333;
-        }
-
-        .product-grid {
+        .products-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 20px;
         }
 
         .product-item {
-            background-color: #f9f9f9;
-            padding: 10px;
+            border: 1px solid #ddd;
             border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            text-align: center;
         }
 
         .product-item img {
             width: 100%;
-            border-radius: 10px;
+            height: 150px;
+            object-fit: cover;
         }
 
-        .product-item h3 {
-            font-size: 18px;
+        .product-item p {
             margin: 10px 0;
-        }
-
-        .product-item .price {
-            font-weight: bold;
-            color: #000;
+            font-size: 14px;
         }
 
         /* Footer Navigation */
         .footer-nav {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: #333;
+            color: #fff;
             position: fixed;
             bottom: 0;
             width: 100%;
-            background-color: #fff;
-            display: flex;
-            justify-content: space-around;
             padding: 10px 0;
-            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
         }
 
         .footer-nav div {
             text-align: center;
-            font-size: 14px;
-            color: #555;
         }
 
         .footer-nav div img {
@@ -137,13 +131,18 @@
             height: 30px;
             margin-bottom: 5px;
         }
+
+        .footer-nav div p {
+            font-size: 12px;
+        }
     </style>
 </head>
 <body>
+
     <!-- Header Section -->
     <div class="header-container">
         <div class="logo">
-            <span class="h-large">H</span>ub
+            <span class="h">H</span>ub
         </div>
         <div class="search-bar">
             <input type="text" placeholder="Search for products, brands, and more">
@@ -151,70 +150,73 @@
     </div>
 
     <!-- Banner Section -->
-    <section class="banner">
-        <div class="carousel" id="carousel">
-            <img src="images/banner.png" alt="Banner 1">
-            <img src="images/banner1.png" alt="Banner 2">
-            <img src="images/banner2.png" alt="Banner 3">
-            <img src="images/banner3.png" alt="Banner 4">
+    <div class="banner">
+        <div class="carousel">
+            <img src="banner.png" alt="Banner 1" class="active">
+            <img src="banner1.png" alt="Banner 2">
+            <img src="banner2.png" alt="Banner 3">
+            <img src="banner3.png" alt="Banner 4">
         </div>
-    </section>
+    </div>
 
     <!-- Products Section -->
-    <section class="products">
-        <h2>Featured Products</h2>
-        <div class="product-grid">
+    <div class="products-section">
+        <h2 style="text-align: center;">Featured Products</h2>
+        <div class="products-grid">
             <div class="product-item">
-                <img src="images/product1.png" alt="Product 1">
-                <h3>Product 1</h3>
-                <p class="price">$99.99</p>
+                <img src="product1.png" alt="Product 1">
+                <p>Product 1</p>
+                <p>$99.99</p>
             </div>
             <div class="product-item">
-                <img src="images/product2.png" alt="Product 2">
-                <h3>Product 2</h3>
-                <p class="price">$79.99</p>
+                <img src="product2.png" alt="Product 2">
+                <p>Product 2</p>
+                <p>$79.99</p>
             </div>
             <div class="product-item">
-                <img src="images/product3.png" alt="Product 3">
-                <h3>Product 3</h3>
-                <p class="price">$59.99</p>
+                <img src="product3.png" alt="Product 3">
+                <p>Product 3</p>
+                <p>$49.99</p>
             </div>
             <div class="product-item">
-                <img src="images/product4.png" alt="Product 4">
-                <h3>Product 4</h3>
-                <p class="price">$49.99</p>
+                <img src="product4.png" alt="Product 4">
+                <p>Product 4</p>
+                <p>$39.99</p>
             </div>
         </div>
-    </section>
+    </div>
 
     <!-- Footer Navigation -->
     <div class="footer-nav">
         <div>
-            <img src="images/orders.png" alt="Orders">
-            <p>Orders</p>
-        </div>
-        <div>
-            <img src="images/cart.png" alt="Cart">
+            <img src="cart-icon.png" alt="Cart">
             <p>Cart</p>
         </div>
         <div>
-            <img src="images/coins.png" alt="H Coins">
+            <img src="orders-icon.png" alt="Orders">
+            <p>Orders</p>
+        </div>
+        <div>
+            <img src="coins-icon.png" alt="H Coins">
             <p>H Coins</p>
         </div>
         <div>
-            <img src="images/history.png" alt="History">
+            <img src="history-icon.png" alt="History">
             <p>History</p>
         </div>
     </div>
 
     <script>
-        const carousel = document.getElementById('carousel');
-        let index = 0;
+        // JavaScript for Banner Slider
+        const banners = document.querySelectorAll('.carousel img');
+        let currentIndex = 0;
 
         setInterval(() => {
-            index = (index + 1) % 4; // Total 4 images
-            carousel.style.transform = `translateX(-${index * 100}%)`;
-        }, 3000); // Change image every 3 seconds
+            banners[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex + 1) % banners.length;
+            banners[currentIndex].classList.add('active');
+        }, 3000);
     </script>
+
 </body>
-    </html>
+            </html>
