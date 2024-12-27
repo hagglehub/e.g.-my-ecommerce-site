@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The H Hub - Your Marketplace</title>
+    <!-- FontAwesome CDN for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
         /* Basic Reset */
         * {
@@ -33,6 +35,7 @@
             border: 1px solid #ddd;
         }
 
+        /* Navigation menu for mobile */
         nav ul {
             display: flex;
             gap: 20px;
@@ -42,6 +45,11 @@
             text-decoration: none;
             color: #333;
             font-weight: bold;
+        }
+
+        .menu-icon {
+            display: none;
+            cursor: pointer;
         }
 
         /* Banner Section Styles */
@@ -61,23 +69,7 @@
             object-fit: cover;
         }
 
-        /* Categories Section Styles */
-        .categories {
-            text-align: center;
-            padding: 20px;
-        }
-
-        .category-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-        }
-
-        .category-item img {
-            width: 100%;
-            border-radius: 10px;
-        }
-
+        /* Categories Section Styles (Removed for now) */
         /* Featured Products Section Styles */
         .featured-products {
             text-align: center;
@@ -133,6 +125,66 @@
             text-decoration: none;
             color: #fff;
         }
+
+        /* Custom icon styles */
+        .bottom-icons {
+            display: flex;
+            justify-content: space-around;
+            padding: 10px;
+            background-color: #333;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .icon-box {
+            text-align: center;
+            color: white;
+        }
+
+        .icon-box i {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        /* Sliding Menu */
+        .menu {
+            display: none;
+            position: fixed;
+            left: 0;
+            top: 0;
+            background-color: #fff;
+            width: 50%;
+            height: 100%;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+        }
+
+        .menu ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .menu ul li {
+            margin: 20px 0;
+        }
+
+        .menu ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .menu-icon {
+            display: block;
+            cursor: pointer;
+            font-size: 24px;
+            color: #333;
+        }
+
+        .menu-open {
+            display: block;
+        }
     </style>
 </head>
 <body>
@@ -153,7 +205,22 @@
                 <li><a href="#">Account</a></li>
             </ul>
         </nav>
+        <!-- Mobile Menu Icon -->
+        <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
     </header>
+
+    <!-- Sliding Menu -->
+    <div class="menu" id="menu">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Orders</a></li>
+            <li><a href="#">Cart</a></li>
+            <li><a href="#">Account</a></li>
+            <li><a href="#">Wishlist</a></li>
+            <li><a href="#">History</a></li>
+            <li><a href="#">My H Coins</a></li>
+        </ul>
+    </div>
 
     <!-- Main Banner Section (Advertisement/Carousel) -->
     <section class="banner">
@@ -162,29 +229,7 @@
             <img src="images/banner.png" alt="Advertisement 1">
             <img src="images/banner2.png" alt="Advertisement 2">
             <img src="images/banner3.png" alt="Advertisement 3">
-        </div>
-    </section>
-
-    <!-- Categories Section -->
-    <section class="categories">
-        <h2>Shop by Categories</h2>
-        <div class="category-grid">
-            <div class="category-item">
-                <img src="images/product1.png" alt="Product 1">
-                <p>Electronics</p>
-            </div>
-            <div class="category-item">
-                <img src="images/product2.png" alt="Product 2">
-                <p>Clothing</p>
-            </div>
-            <div class="category-item">
-                <img src="images/product3.png" alt="Product 3">
-                <p>Books</p>
-            </div>
-            <div class="category-item">
-                <img src="images/product4.png" alt="Product 4">
-                <p>Accessories</p>
-            </div>
+            <img src="images/banner4.png" alt="Advertisement 4">
         </div>
     </section>
 
@@ -215,20 +260,25 @@
         </div>
     </section>
 
-    <!-- Deals Section -->
-    <section class="deals">
-        <h2>Today's Deals</h2>
-        <div class="deal-items">
-            <div class="deal-item">
-                <img src="images/product1.png" alt="Deal 1">
-                <p>50% off on Electronics</p>
-            </div>
-            <div class="deal-item">
-                <img src="images/product2.png" alt="Deal 2">
-                <p>Buy 1 Get 1 Free on Clothing</p>
-            </div>
+    <!-- Bottom Icons -->
+    <div class="bottom-icons">
+        <div class="icon-box">
+            <i class="fas fa-box"></i>
+            <p>Orders</p>
         </div>
-    </section>
+        <div class="icon-box">
+            <i class="fas fa-shopping-cart"></i>
+            <p>Cart</p>
+        </div>
+        <div class="icon-box">
+            <i class="fas fa-coins"></i>
+            <p>H Coins</p>
+        </div>
+        <div class="icon-box">
+            <i class="fas fa-history"></i>
+            <p>History</p>
+        </div>
+    </div>
 
     <!-- Footer Section -->
     <footer>
@@ -239,6 +289,14 @@
             <li><a href="#">Contact</a></li>
         </ul>
     </footer>
+
+    <script>
+        // Function to toggle the sliding menu
+        function toggleMenu() {
+            var menu = document.getElementById('menu');
+            menu.classList.toggle('menu-open');
+        }
+    </script>
 
 </body>
     </html>
