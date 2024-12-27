@@ -1,10 +1,87 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f5f9ff;
-    color: #333333;
-    text-align: center;
-    padding: 20px;
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-h1 {
+
+/* Body */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #F5F9FF; /* Light blue */
+    color: #333333; /* Dark gray text */
+}
+
+/* Header */
+header {
+    background-color: #002855; /* Navy blue */
+    color: #FFFFFF;
+    padding: 20px 0;
+}
+
+header .container {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    font-size: 2em;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #FFC107; /* Bright yellow */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 50px 0;
+    background-color: #FFFFFF;
+}
+
+.hero h2 {
+    font-size: 2.5em;
     color: #002855;
+}
+
+.hero p {
+    font-size: 1.2em;
+    color: #333333;
+}
+
+/* Products Section */
+.product-list {
+    text-align: center;
+    padding: 40px 0;
+}
+
+.product-list h2 {
+    font-size: 2.5em;
+    color: #002855;
+}
+
+/* Footer */
+footer {
+    background-color: #002855; /* Navy blue */
+    color: #FFFFFF;
+    text-align: center;
+    padding: 20px 0;
 }
