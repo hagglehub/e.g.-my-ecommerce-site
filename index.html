@@ -4,221 +4,72 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The H Hub</title>
-    <style>
-        /* Basic Reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f5f9ff; /* Light blue background */
-            color: #333;
-        }
-
-        /* Header Section */
-        .header {
-            text-align: center;
-            background-color: #002855; /* Navy blue */
-            padding: 20px;
-            color: #FFC107; /* Bright yellow */
-        }
-
-        .header h1 {
-            font-size: 24px;
-        }
-
-        .header .highlight {
-            font-size: 48px; /* H is 2× bigger */
-            font-weight: bold;
-        }
-
-        /* Search Bar */
-        .search-bar {
-            margin: 10px 20px;
-            display: flex;
-            justify-content: center;
-        }
-
-        .search-bar input {
-            padding: 10px;
-            width: 80%;
-            border-radius: 5px;
-            border: 1px solid #ddd;
-        }
-
-        /* Banner Section */
-        .banner {
-            width: 100%;
-            height: 300px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .banner img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            position: absolute;
-            animation: slide 12s infinite;
-        }
-
-        .banner img:nth-child(1) {
-            animation-delay: 0s;
-        }
-
-        .banner img:nth-child(2) {
-            animation-delay: 3s;
-        }
-
-        .banner img:nth-child(3) {
-            animation-delay: 6s;
-        }
-
-        .banner img:nth-child(4) {
-            animation-delay: 9s;
-        }
-
-        @keyframes slide {
-            0% {
-                opacity: 1;
-                z-index: 1;
-            }
-            25% {
-                opacity: 0;
-                z-index: 0;
-            }
-            100% {
-                opacity: 0;
-                z-index: 0;
-            }
-        }
-
-        /* Product Grid */
-        .products {
-            padding: 20px;
-            text-align: center;
-        }
-
-        .products h2 {
-            margin-bottom: 10px;
-        }
-
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
-        }
-
-        .product-item img {
-            width: 100%;
-            border-radius: 10px;
-        }
-
-        .product-item {
-            background-color: #fff;
-            padding: 10px;
-            border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Bottom Navigation */
-        .bottom-nav {
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            background-color: #fff;
-            display: flex;
-            justify-content: space-around;
-            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
-            padding: 10px 0;
-        }
-
-        .nav-item {
-            text-align: center;
-            color: #002855; /* Navy blue */
-        }
-
-        .nav-item img {
-            width: 30px;
-            height: 30px;
-            display: block;
-            margin: 0 auto;
-        }
-
-        .nav-item span {
-            font-size: 14px;
-            margin-top: 5px;
-            display: block;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Header -->
-    <div class="header">
-        <h1><span>The </span><span class="highlight">H</span><span> Hub</span></h1>
-    </div>
-
-    <!-- Search Bar -->
-    <div class="search-bar">
-        <input type="text" placeholder="Search for products, brands, and more">
-    </div>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <h1>The <span class="highlighted-h">H</span> Hub</h1>
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Search for products, brands, and more">
+        </div>
+    </header>
 
     <!-- Banner Section -->
-    <div class="banner">
-        <img src="banner.png" alt="Banner 1">
-        <img src="banner1.png" alt="Banner 2">
-        <img src="banner2.png" alt="Banner 3">
-        <img src="banner3.png" alt="Banner 4">
-    </div>
+    <section class="banner">
+        <div class="carousel">
+            <img src="images/banner.png" alt="Banner 1">
+            <img src="images/banner1.png" alt="Banner 2">
+            <img src="images/banner2.png" alt="Banner 3">
+            <img src="images/banner3.png" alt="Banner 4">
+        </div>
+    </section>
 
     <!-- Products Section -->
     <section class="products">
         <h2>Featured Products</h2>
         <div class="product-grid">
             <div class="product-item">
-                <img src="product1.png" alt="Product 1">
+                <img src="images/product1.png" alt="Product 1">
                 <p>Product 1</p>
-                <p>$99.99</p>
             </div>
             <div class="product-item">
-                <img src="product2.png" alt="Product 2">
+                <img src="images/product2.png" alt="Product 2">
                 <p>Product 2</p>
-                <p>$89.99</p>
             </div>
             <div class="product-item">
-                <img src="product3.png" alt="Product 3">
+                <img src="images/product3.png" alt="Product 3">
                 <p>Product 3</p>
-                <p>$79.99</p>
             </div>
             <div class="product-item">
-                <img src="product4.png" alt="Product 4">
+                <img src="images/product4.png" alt="Product 4">
                 <p>Product 4</p>
-                <p>$69.99</p>
             </div>
         </div>
     </section>
 
     <!-- Bottom Navigation -->
-    <div class="bottom-nav">
+    <footer class="bottom-navigation">
         <div class="nav-item">
-            <img src="order.png" alt="Orders">
-            <span>Orders</span>
+            <img src="images/order.png" alt="Orders">
+            <p>Orders</p>
         </div>
         <div class="nav-item">
-            <img src="cart.png" alt="Cart">
-            <span>Cart</span>
+            <img src="images/cart.png" alt="Cart">
+            <p>Cart</p>
         </div>
         <div class="nav-item">
-            <img src="coin.png" alt="H Coins">
-            <span>H Coins</span>
+            <img src="images/coin.png" alt="H Coins">
+            <p>H Coins</p>
         </div>
         <div class="nav-item">
-            <img src="history.png" alt="History">
-            <span>History</span>
+            <img src="images/history.png" alt="History">
+            <p>History</p>
         </div>
-    </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
-    </html>
+                    </html>
