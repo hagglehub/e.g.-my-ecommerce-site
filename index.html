@@ -3,69 +3,231 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The H Hub - Your Shopping Hub</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>The H Hub - Your Marketplace</title>
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Header Styles */
+        header {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo h1 {
+            font-size: 24px;
+            color: #333;
+        }
+
+        .search-bar input {
+            padding: 10px;
+            width: 300px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+
+        /* Banner Section Styles */
+        .banner {
+            width: 100%;
+            height: 400px;
+            background-color: #f1f1f1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .carousel img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Categories Section Styles */
+        .categories {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .category-item img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        /* Featured Products Section Styles */
+        .featured-products {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .product-item img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        /* Deals Section Styles */
+        .deals {
+            background-color: #f9f9f9;
+            padding: 20px;
+        }
+
+        .deal-items {
+            display: flex;
+            gap: 20px;
+        }
+
+        .deal-item img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        /* Footer Section Styles */
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        footer ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        footer ul li {
+            display: inline;
+            margin: 0 10px;
+        }
+
+        footer ul li a {
+            text-decoration: none;
+            color: #fff;
+        }
+    </style>
 </head>
 <body>
 
-    <!-- Header Section with Menu -->
+    <!-- Header Section -->
     <header>
-        <div class="menu-toggle" id="menu-toggle">
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
+        <div class="logo">
+            <h1>The H Hub</h1> <!-- Your store name here -->
         </div>
-        <h1 class="logo">The <span class="hub">H</span> Hub</h1>
+        <div class="search-bar">
+            <input type="text" placeholder="Search for products, brands, and more">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Orders</a></li>
+                <li><a href="#">Cart</a></li>
+                <li><a href="#">Account</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <!-- Sidebar Menu -->
-    <nav class="side-menu" id="side-menu">
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Orders</a></li>
-            <li><a href="#">Wishlist</a></li>
-            <li><a href="#">Categories</a></li>
-        </ul>
-    </nav>
-
-    <!-- Main Content Section -->
-    <main>
-        <!-- Image Slider for Ads -->
-        <div class="slider">
-            <div class="slider-images">
-                <img src="https://via.placeholder.com/1200x300?text=Ad+1" alt="Ad 1">
-                <img src="https://via.placeholder.com/1200x300?text=Ad+2" alt="Ad 2">
-                <img src="https://via.placeholder.com/1200x300?text=Ad+3" alt="Ad 3">
-            </div>
+    <!-- Main Banner Section (Advertisement/Carousel) -->
+    <section class="banner">
+        <div class="carousel">
+            <!-- Add multiple images for carousel -->
+            <img src="your-banner-image1.jpg" alt="Advertisement 1">
+            <img src="your-banner-image2.jpg" alt="Advertisement 2">
+            <img src="your-banner-image3.jpg" alt="Advertisement 3">
         </div>
+    </section>
 
-        <!-- Categories Section -->
-        <section class="categories">
-            <div class="category" onclick="showProducts(1)">Electronics</div>
-            <div class="category" onclick="showProducts(2)">Fashion</div>
-            <div class="category" onclick="showProducts(3)">Home & Kitchen</div>
-            <div class="category" onclick="showProducts(4)">Books</div>
-        </section>
-
-        <!-- Product Section (Hidden initially) -->
-        <section id="product-section" class="products">
-            <h2>Products</h2>
-            <div id="products-list">
-                <!-- Products will be shown here -->
+    <!-- Categories Section -->
+    <section class="categories">
+        <h2>Shop by Categories</h2>
+        <div class="category-grid">
+            <div class="category-item">
+                <img src="electronics.jpg" alt="Electronics">
+                <p>Electronics</p>
             </div>
-        </section>
-
-        <!-- Footer with Quick Links -->
-        <footer>
-            <div class="footer-links">
-                <a href="#">My H Coins</a>
-                <a href="#">Wishlist</a>
-                <a href="#">Orders</a>
-                <a href="#">History</a>
+            <div class="category-item">
+                <img src="clothing.jpg" alt="Clothing">
+                <p>Clothing</p>
             </div>
-        </footer>
-    </main>
+            <div class="category-item">
+                <img src="books.jpg" alt="Books">
+                <p>Books</p>
+            </div>
+            <!-- Add more categories as needed -->
+        </div>
+    </section>
 
-    <script src="script.js"></script>
+    <!-- Featured Products Section -->
+    <section class="featured-products">
+        <h2>Featured Products</h2>
+        <div class="product-grid">
+            <div class="product-item">
+                <img src="product1.jpg" alt="Product 1">
+                <p>Product 1</p>
+                <p>$99.99</p>
+            </div>
+            <div class="product-item">
+                <img src="product2.jpg" alt="Product 2">
+                <p>Product 2</p>
+                <p>$79.99</p>
+            </div>
+            <!-- Add more products as needed -->
+        </div>
+    </section>
+
+    <!-- Deals Section -->
+    <section class="deals">
+        <h2>Today's Deals</h2>
+        <div class="deal-items">
+            <div class="deal-item">
+                <img src="deal1.jpg" alt="Deal 1">
+                <p>50% off on Electronics</p>
+            </div>
+            <div class="deal-item">
+                <img src="deal2.jpg" alt="Deal 2">
+                <p>Buy 1 Get 1 Free on Clothing</p>
+            </div>
+            <!-- Add more deals as needed -->
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Terms & Conditions</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </footer>
+
 </body>
                 </html>
