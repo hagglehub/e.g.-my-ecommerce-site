@@ -30,6 +30,11 @@
             font-family: 'Arial', sans-serif;
         }
 
+        .logo h1 span {
+            font-size: 96px;
+            color: #002855; /* Color for the large H */
+        }
+
         .search-bar input {
             padding: 10px;
             width: 300px;
@@ -68,7 +73,7 @@
 
         .product-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(2, 1fr); /* 2 products per row */
             gap: 20px;
             padding: 0 20px;
         }
@@ -119,7 +124,7 @@
     <!-- Header Section -->
     <header>
         <div class="logo">
-            <h1>The <span style="font-size: 96px; color: #002855;">H</span> Hub</h1> <!-- Large "H" and smaller "Hub" -->
+            <h1>The <span>H</span> Hub</h1> <!-- Correct styling of the title with a large "H" -->
         </div>
         <div class="search-bar">
             <input type="text" placeholder="Search for products, brands, and more">
@@ -185,4 +190,4 @@
         setInterval(showNextBanner, 3000); // Change every 3 seconds
     </script>
 </body>
-                </html>
+    </html>
