@@ -53,9 +53,6 @@
         .banner {
             width: 100%;
             height: 400px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
             position: relative;
             overflow: hidden;
         }
@@ -63,8 +60,10 @@
         .carousel img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: cover; /* Ensures images cover the space */
             position: absolute;
+            top: 0;
+            left: 0;
             transition: opacity 1s ease-in-out;
         }
 
@@ -83,7 +82,7 @@
             grid-template-columns: repeat(2, 1fr); /* 2 products per row */
             gap: 20px;
             padding: 0 20px;
-            margin-bottom: 60px; /* Ensures space for the bottom icons */
+            margin-bottom: 70px; /* Ensures space for the bottom icons */
         }
 
         .product-item {
@@ -92,13 +91,11 @@
             padding: 15px;
             background-color: #fff;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            width: 90%; /* Adjusted width to make product slots slightly wider */
-            margin: 0 auto; /* Center the product items */
         }
 
         .product-item img {
             width: 100%;
-            height: 220px; /* Slightly increased height for better visibility */
+            height: 200px;
             object-fit: cover;
             border-radius: 10px;
         }
@@ -106,16 +103,11 @@
         .product-item p {
             font-size: 18px;
             margin: 10px 0;
-            word-wrap: break-word; /* Ensures long names break into the next line */
-            text-align: center; /* Center-align the product name */
         }
 
         .product-item span {
             font-size: 20px;
             color: #333;
-            font-weight: bold;
-            text-align: center;
-            display: block;
         }
 
         /* Footer Section (Bottom Icons) */
@@ -222,4 +214,4 @@
         setInterval(showNextBanner, 3000); // Change every 3 seconds
     </script>
 </body>
-                    </html>
+    </html>
