@@ -12,22 +12,7 @@
             padding: 0;
             box-sizing: border-box;
         }
-<!-- Hamburger Menu (Top Left) -->
-<div class="hamburger-menu" onclick="toggleSidebar()">
-    <i class="fas fa-bars"></i>
-</div>
 
-<!-- Sidebar -->
-<div class="sidebar">
-    <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Shop</a></li>
-        <li><a href="#">My Orders</a></li>
-        <li><a href="#">Wishlist</a></li>
-        <li><a href="#">Categories</a></li>
-        <li><a href="#">Contact</a></li>
-    </ul>
-</div>
         /* Body */
         body {
             font-family: Arial, sans-serif;
@@ -64,6 +49,45 @@
             margin-top: 10px;
         }
 
+        /* Hamburger Menu (Top Left) */
+        .hamburger-menu {
+            position: absolute;
+            left: 20px;
+            top: 20px;
+            cursor: pointer;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 250px;
+            height: 100%;
+            background-color: #333;
+            color: white;
+            display: none;
+        }
+
+        .sidebar ul {
+            padding: 20px;
+            list-style: none;
+        }
+
+        .sidebar ul li {
+            margin-bottom: 20px;
+        }
+
+        .sidebar ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 20px;
+        }
+
+        .sidebar ul li a:hover {
+            color: #FFC107;
+        }
+
         /* Banner Section */
         .banner {
             width: 100%;
@@ -95,8 +119,8 @@
         .product-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr); /* 2 products per row */
-            gap: 0px;
-            padding: 0 0px;
+            gap: 20px; /* Added some space between products */
+            padding: 0 20px;
             margin-bottom: 60px; /* Ensures space for the bottom icons */
         }
 
@@ -159,6 +183,23 @@
     </style>
 </head>
 <body>
+
+    <!-- Hamburger Menu (Top Left) -->
+    <div class="hamburger-menu" onclick="toggleSidebar()">
+        <i class="fas fa-bars"></i>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Shop</a></li>
+            <li><a href="#">My Orders</a></li>
+            <li><a href="#">Wishlist</a></li>
+            <li><a href="#">Categories</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </div>
 
     <!-- Header Section -->
     <header>
@@ -227,22 +268,12 @@
         }
 
         setInterval(showNextBanner, 3000); // Change every 3 seconds
+
+        // Toggle Sidebar
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.style.display = (sidebar.style.display === 'block') ? 'none' : 'block';
+        }
     </script>
 </body>
-  </html>
-<section class="products">
-    <a href="product.html">
-        <div class="product-item">
-            <img src="images/p1.jpg" alt="Product 1">
-            <p>Product 1</p>
-            <span>$99.99</span>
-        </div>
-    </a>
-    <a href="product.html">
-        <div class="product-item">
-            <img src="images/p2.jpg" alt="Product 2">
-            <p>Product 2</p>
-            <span>$79.99</span>
-        </div>
-    </a>
-</section>
+                </html>
