@@ -17,6 +17,8 @@
         body {
             font-family: Arial, sans-serif;
             height: 100%;
+            display: flex;
+            flex-direction: column;
         }
 
         /* Header Styles */
@@ -53,6 +55,9 @@
         .banner {
             width: 100%;
             height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             position: relative;
             overflow: hidden;
         }
@@ -62,8 +67,6 @@
             height: 100%;
             object-fit: cover; /* Ensures images cover the space */
             position: absolute;
-            top: 0;
-            left: 0;
             transition: opacity 1s ease-in-out;
         }
 
@@ -80,17 +83,18 @@
         .product-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr); /* 2 products per row */
-            gap: 10px;
-            padding: 0 10px;
-            margin-bottom: 20px; /* Ensures space for the bottom icons */
+            gap: 20px;
+            padding: 0 20px;
+            margin-bottom: 60px; /* Ensures space for the bottom icons */
         }
 
         .product-item {
-            border: 0px solid #ddd;
-            border-radius: 0px;
-            padding: 0px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 15px;
             background-color: #fff;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
         }
 
         .product-item img {
@@ -141,6 +145,24 @@
             font-size: 14px;
         }
 
+        /* Additional Styles for Page */
+        .container {
+            width: 100%;
+            max-width: 1200px; /* Ensures the content does not stretch too wide */
+            margin: 0 auto;
+        }
+
+        /* Ensures the body fills the page */
+        body, html {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* To ensure the page fits properly on all screens */
+        .product-grid {
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
@@ -148,7 +170,7 @@
     <!-- Header Section -->
     <header>
         <div class="logo">
-            <h1>The <span>H</span> Hub</h1> <!-- Correct styling of the title with a large "H" -->
+            <h1>The <span>H</span> Hub</h1>
         </div>
         <div class="search-bar">
             <input type="text" placeholder="Search for products, brands, and more">
@@ -214,6 +236,4 @@
         setInterval(showNextBanner, 3000); // Change every 3 seconds
     </script>
 </body>
-  </html>
-
-
+                </html>
