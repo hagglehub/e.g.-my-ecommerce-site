@@ -13,25 +13,31 @@
             box-sizing: border-box;
         }
 
+        /* Body */
+        body {
+            font-family: Arial, sans-serif;
+            height: 100%;
+        }
+
         /* Header Styles */
         header {
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 10px 20px;
+            padding: 20px 0;
             background-color: #fff;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
         .logo h1 {
-            font-size: 48px;
+            font-size: 36px;
             color: #333;
             font-weight: bold;
-            font-family: 'Arial', sans-serif;
+            text-align: center;
         }
 
         .logo h1 span {
-            font-size: 96px;
+            font-size: 72px;
             color: #002855; /* Color for the large H */
         }
 
@@ -40,6 +46,7 @@
             width: 300px;
             border-radius: 5px;
             border: 1px solid #ddd;
+            margin-top: 10px;
         }
 
         /* Banner Section */
@@ -56,7 +63,7 @@
         .carousel img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: cover; /* Ensures images cover the space */
             position: absolute;
             transition: opacity 1s ease-in-out;
         }
@@ -76,10 +83,21 @@
             grid-template-columns: repeat(2, 1fr); /* 2 products per row */
             gap: 20px;
             padding: 0 20px;
+            margin-bottom: 60px; /* Ensures space for the bottom icons */
+        }
+
+        .product-item {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 15px;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
         .product-item img {
             width: 100%;
+            height: 200px;
+            object-fit: cover;
             border-radius: 10px;
         }
 
@@ -106,17 +124,24 @@
             box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
         }
 
-        .bottom-icons i {
-            font-size: 24px;
-            color: #333;
-        }
-
-        /* Optional Style */
         .bottom-icons a {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             color: #333;
             text-decoration: none;
-            text-align: center;
         }
+
+        .bottom-icons i {
+            font-size: 20px;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .bottom-icons p {
+            font-size: 14px;
+        }
+
     </style>
 </head>
 <body>
@@ -190,4 +215,4 @@
         setInterval(showNextBanner, 3000); // Change every 3 seconds
     </script>
 </body>
-    </html>
+</html>
