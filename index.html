@@ -24,6 +24,7 @@
 
         .logo h1 {
             font-size: 36px;
+            font-weight: bold;
             color: #333;
         }
 
@@ -32,17 +33,6 @@
             width: 300px;
             border-radius: 5px;
             border: 1px solid #ddd;
-        }
-
-        nav ul {
-            display: flex;
-            gap: 20px;
-        }
-
-        nav ul li a {
-            text-decoration: none;
-            color: #333;
-            font-weight: bold;
         }
 
         /* Banner Section Styles */
@@ -57,10 +47,9 @@
         }
 
         .carousel {
-            width: 100%;
-            height: 100%;
             display: flex;
-            transition: transform 0.5s ease;
+            transition: transform 1s ease-in-out;
+            width: 400%;
         }
 
         .carousel img {
@@ -69,17 +58,30 @@
             object-fit: cover;
         }
 
-        /* Categories and Products Section Styles */
+        /* Products Section Styles */
         .products {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 20px;
             padding: 20px;
+            width: 100%;
+        }
+
+        .product-item {
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            padding: 10px;
+            text-align: center;
         }
 
         .product-item img {
             width: 100%;
             border-radius: 10px;
+        }
+
+        .product-item p {
+            font-size: 16px;
+            font-weight: bold;
         }
 
         /* Footer Section (Fixed Bottom Icons) */
@@ -93,12 +95,13 @@
             padding: 10px 0;
         }
 
-        .bottom-icons i {
+        .bottom-icons .icon {
+            color: #fff;
             font-size: 30px;
-            color: white;
+            cursor: pointer;
         }
 
-        .bottom-icons i:hover {
+        .bottom-icons .icon:hover {
             color: #FFC107;
         }
     </style>
@@ -108,7 +111,7 @@
     <!-- Header Section -->
     <header>
         <div class="logo">
-            <h1><span style="font-size: 72px; font-weight: bold;">H</span> Hub</h1>
+            <h1>The H Hub</h1> <!-- Your store name here -->
         </div>
         <div class="search-bar">
             <input type="text" placeholder="Search for products, brands, and more">
@@ -118,47 +121,73 @@
     <!-- Main Banner Section (Advertisement/Carousel) -->
     <section class="banner">
         <div class="carousel">
-            <img src="images/b1.jpg" alt="Banner 1">
-            <img src="images/b2.jpg" alt="Banner 2">
-            <img src="images/b3.jpg" alt="Banner 3">
-            <img src="images/b4.jpg" alt="Banner 4">
+            <!-- Banner Images -->
+            <img src="b1.jpg" alt="Banner 1">
+            <img src="b2.jpg" alt="Banner 2">
+            <img src="b3.jpg" alt="Banner 3">
+            <img src="b4.jpg" alt="Banner 4">
         </div>
     </section>
 
-    <!-- Featured Products Section -->
+    <!-- Products Section -->
     <section class="products">
         <div class="product-item">
-            <img src="images/p1.jpg" alt="Product 1">
+            <img src="p1.jpg" alt="Product 1">
+            <p>Product 1</p>
+            <p>$49.99</p>
         </div>
         <div class="product-item">
-            <img src="images/p2.jpg" alt="Product 2">
+            <img src="p2.jpg" alt="Product 2">
+            <p>Product 2</p>
+            <p>$39.99</p>
         </div>
         <div class="product-item">
-            <img src="images/p3.jpg" alt="Product 3">
+            <img src="p3.jpg" alt="Product 3">
+            <p>Product 3</p>
+            <p>$59.99</p>
         </div>
         <div class="product-item">
-            <img src="images/p4.jpg" alt="Product 4">
+            <img src="p4.jpg" alt="Product 4">
+            <p>Product 4</p>
+            <p>$29.99</p>
         </div>
     </section>
 
-    <!-- Footer Section with Bottom Icons -->
-    <div class="bottom-icons">
-        <i class="fas fa-box" title="Orders"></i>
-        <i class="fas fa-cart-plus" title="Cart"></i>
-        <i class="fas fa-coins" title="H Coins"></i>
-        <i class="fas fa-history" title="History"></i>
-    </div>
+    <!-- Fixed Bottom Icons -->
+    <section class="bottom-icons">
+        <div class="icon">
+            <i class="fas fa-box"></i>
+            <p>Orders</p>
+        </div>
+        <div class="icon">
+            <i class="fas fa-shopping-cart"></i>
+            <p>Cart</p>
+        </div>
+        <div class="icon">
+            <i class="fas fa-coins"></i>
+            <p>H Coins</p>
+        </div>
+        <div class="icon">
+            <i class="fas fa-history"></i>
+            <p>History</p>
+        </div>
+    </section>
 
     <script>
-        // Banner Sliding Effect
-        let index = 0;
-        const images = document.querySelectorAll(".carousel img");
-        const carousel = document.querySelector(".carousel");
-        
-        setInterval(() => {
-            index = (index + 1) % images.length;
-            carousel.style.transform = `translateX(-${index * 100}%)`;
-        }, 3000);
+        let currentIndex = 0;
+        const banners = document.querySelectorAll('.carousel img');
+        const totalBanners = banners.length;
+
+        function changeBanner() {
+            banners.forEach((banner, index) => {
+                banner.style.display = index === currentIndex ? 'block' : 'none';
+            });
+            currentIndex = (currentIndex + 1) % totalBanners;
+        }
+
+        setInterval(changeBanner, 3000); // Change banner every 3 seconds
+        changeBanner(); // Initial banner display
     </script>
+
 </body>
-                </html>
+        </html>
