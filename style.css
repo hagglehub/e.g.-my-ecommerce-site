@@ -98,7 +98,36 @@ header {
     margin-top: 5px;
     font-size: 16px;
 }
+/* Blank Space Styling */
+.blank-space {
+    height: 1000px;  /* Adjust this value to extend your page */
+    background-color: #f5f5f5; /* Optional: gives the space a background color */
+}
 
+/* Ensure body or main container can extend */
+body {
+    min-height: 100vh; /* Ensure the body takes full height of the screen */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Optionally adjust content to take the remaining space */
+.main-content {
+    flex-grow: 1;
+}
+
+/* Adjust bottom icons if needed */
+.bottom-icons {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #f1f1f1;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
 /* Bottom Navigation */
 footer .bottom-nav {
     display: flex;
