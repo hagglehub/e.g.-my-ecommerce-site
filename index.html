@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The H Hub</title>
-    <!-- Adding Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>The H Hub - Your Marketplace</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
         /* Basic Reset */
         * {
@@ -24,9 +23,8 @@
         }
 
         .logo h1 {
-            font-size: 48px;
+            font-size: 36px;
             color: #333;
-            font-weight: bold;
         }
 
         .search-bar input {
@@ -56,31 +54,27 @@
             justify-content: center;
             align-items: center;
             overflow: hidden;
-            position: relative;
+        }
+
+        .carousel {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            transition: transform 0.5s ease;
         }
 
         .carousel img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            position: absolute;
-            transition: opacity 1s ease-in-out;
         }
 
-        .carousel img.hide {
-            opacity: 0;
-        }
-
-        /* Featured Products Section Styles */
-        .featured-products {
-            text-align: center;
-            padding: 20px;
-        }
-
-        .product-grid {
+        /* Categories and Products Section Styles */
+        .products {
             display: grid;
-            grid-template-columns: repeat(2, 1fr); /* 2 products per row */
+            grid-template-columns: repeat(2, 1fr);
             gap: 20px;
+            padding: 20px;
         }
 
         .product-item img {
@@ -88,45 +82,24 @@
             border-radius: 10px;
         }
 
-        /* Bottom Icons */
+        /* Footer Section (Fixed Bottom Icons) */
         .bottom-icons {
             display: flex;
             justify-content: space-around;
-            padding: 10px;
-            background-color: #f9f9f9;
-        }
-
-        .bottom-icons div {
-            text-align: center;
-            font-size: 18px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #333;
+            padding: 10px 0;
         }
 
         .bottom-icons i {
-            font-size: 36px;
-            color: #333;
+            font-size: 30px;
+            color: white;
         }
 
-        /* Footer Section Styles */
-        footer {
-            background-color: #333;
-            color: #fff;
-            padding: 20px;
-            text-align: center;
-        }
-
-        footer ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        footer ul li {
-            display: inline;
-            margin: 0 10px;
-        }
-
-        footer ul li a {
-            text-decoration: none;
-            color: #fff;
+        .bottom-icons i:hover {
+            color: #FFC107;
         }
     </style>
 </head>
@@ -135,7 +108,7 @@
     <!-- Header Section -->
     <header>
         <div class="logo">
-            <h1>The H Hub</h1>
+            <h1><span style="font-size: 72px; font-weight: bold;">H</span> Hub</h1>
         </div>
         <div class="search-bar">
             <input type="text" placeholder="Search for products, brands, and more">
@@ -145,87 +118,47 @@
     <!-- Main Banner Section (Advertisement/Carousel) -->
     <section class="banner">
         <div class="carousel">
-            <img src="images/b1.jpg" alt="Banner 1" class="show">
-            <img src="images/b2.jpg" alt="Banner 2" class="hide">
-            <img src="images/b3.jpg" alt="Banner 3" class="hide">
-            <img src="images/b4.jpg" alt="Banner 4" class="hide">
+            <img src="images/b1.jpg" alt="Banner 1">
+            <img src="images/b2.jpg" alt="Banner 2">
+            <img src="images/b3.jpg" alt="Banner 3">
+            <img src="images/b4.jpg" alt="Banner 4">
         </div>
     </section>
 
     <!-- Featured Products Section -->
-    <section class="featured-products">
-        <h2>Featured Products</h2>
-        <div class="product-grid">
-            <div class="product-item">
-                <img src="images/p1.jpg" alt="Product 1">
-                <p>Product 1</p>
-                <p>$99.99</p>
-            </div>
-            <div class="product-item">
-                <img src="images/p2.jpg" alt="Product 2">
-                <p>Product 2</p>
-                <p>$79.99</p>
-            </div>
-            <div class="product-item">
-                <img src="images/p3.jpg" alt="Product 3">
-                <p>Product 3</p>
-                <p>$59.99</p>
-            </div>
-            <div class="product-item">
-                <img src="images/p4.jpg" alt="Product 4">
-                <p>Product 4</p>
-                <p>$89.99</p>
-            </div>
+    <section class="products">
+        <div class="product-item">
+            <img src="images/p1.jpg" alt="Product 1">
+        </div>
+        <div class="product-item">
+            <img src="images/p2.jpg" alt="Product 2">
+        </div>
+        <div class="product-item">
+            <img src="images/p3.jpg" alt="Product 3">
+        </div>
+        <div class="product-item">
+            <img src="images/p4.jpg" alt="Product 4">
         </div>
     </section>
 
-    <!-- Bottom Icons Section -->
-    <section class="bottom-icons">
-        <div>
-            <i class="fas fa-box"></i>
-            <p>Orders</p>
-        </div>
-        <div>
-            <i class="fas fa-shopping-cart"></i>
-            <p>Cart</p>
-        </div>
-        <div>
-            <i class="fas fa-coins"></i>
-            <p>H Coins</p>
-        </div>
-        <div>
-            <i class="fas fa-history"></i>
-            <p>History</p>
-        </div>
-    </section>
+    <!-- Footer Section with Bottom Icons -->
+    <div class="bottom-icons">
+        <i class="fas fa-box" title="Orders"></i>
+        <i class="fas fa-cart-plus" title="Cart"></i>
+        <i class="fas fa-coins" title="H Coins"></i>
+        <i class="fas fa-history" title="History"></i>
+    </div>
 
-    <!-- Footer Section -->
-    <footer>
-        <ul>
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Terms & Conditions</a></li>
-            <li><a href="#">Privacy Policy</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
-    </footer>
-
-    <!-- JavaScript for Banner Slideshow -->
     <script>
+        // Banner Sliding Effect
         let index = 0;
-        const images = document.querySelectorAll('.carousel img');
-
-        function slide() {
-            images.forEach((img, i) => {
-                img.classList.add('hide'); // Hide all images
-                if (i === index) {
-                    img.classList.remove('hide'); // Show current image
-                }
-            });
-
-            index = (index + 1) % images.length; // Loop through images
-        }
-
-        setInterval(slide, 3000); // Change image every 3 seconds
+        const images = document.querySelectorAll(".carousel img");
+        const carousel = document.querySelector(".carousel");
+        
+        setInterval(() => {
+            index = (index + 1) % images.length;
+            carousel.style.transform = `translateX(-${index * 100}%)`;
+        }, 3000);
     </script>
 </body>
                 </html>
