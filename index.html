@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The H Hub</title>
+    <!-- Adding Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         /* Basic Reset */
         * {
@@ -69,23 +71,6 @@
             opacity: 0;
         }
 
-        /* Categories Section Styles */
-        .categories {
-            text-align: center;
-            padding: 20px;
-        }
-
-        .category-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-        }
-
-        .category-item img {
-            width: 100%;
-            border-radius: 10px;
-        }
-
         /* Featured Products Section Styles */
         .featured-products {
             text-align: center;
@@ -94,7 +79,7 @@
 
         .product-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(2, 1fr); /* 2 products per row */
             gap: 20px;
         }
 
@@ -150,56 +135,46 @@
     <!-- Header Section -->
     <header>
         <div class="logo">
-            <h1>The H Hub</h1> <!-- Your store name here -->
+            <h1>The H Hub</h1>
         </div>
         <div class="search-bar">
             <input type="text" placeholder="Search for products, brands, and more">
         </div>
-        <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Orders</a></li>
-                <li><a href="#">Cart</a></li>
-                <li><a href="#">Account</a></li>
-            </ul>
-        </nav>
     </header>
 
     <!-- Main Banner Section (Advertisement/Carousel) -->
     <section class="banner">
         <div class="carousel">
-            <img src="images/banner.png" alt="Banner 1" class="banner-slide">
-            <img src="images/banner1.png" alt="Banner 2" class="banner-slide hide">
-            <img src="images/banner2.png" alt="Banner 3" class="banner-slide hide">
-            <img src="images/banner3.png" alt="Banner 4" class="banner-slide hide">
+            <img src="images/b1.jpg" alt="Banner 1" class="show">
+            <img src="images/b2.jpg" alt="Banner 2" class="hide">
+            <img src="images/b3.jpg" alt="Banner 3" class="hide">
+            <img src="images/b4.jpg" alt="Banner 4" class="hide">
         </div>
     </section>
-
-    <!-- Categories Section (Removed as per your request) -->
 
     <!-- Featured Products Section -->
     <section class="featured-products">
         <h2>Featured Products</h2>
         <div class="product-grid">
             <div class="product-item">
-                <img src="images/product1.png" alt="Product 1">
+                <img src="images/p1.jpg" alt="Product 1">
                 <p>Product 1</p>
                 <p>$99.99</p>
             </div>
             <div class="product-item">
-                <img src="images/product2.png" alt="Product 2">
+                <img src="images/p2.jpg" alt="Product 2">
                 <p>Product 2</p>
                 <p>$79.99</p>
             </div>
             <div class="product-item">
-                <img src="images/product3.png" alt="Product 3">
+                <img src="images/p3.jpg" alt="Product 3">
                 <p>Product 3</p>
                 <p>$59.99</p>
             </div>
             <div class="product-item">
-                <img src="images/product4.png" alt="Product 4">
+                <img src="images/p4.jpg" alt="Product 4">
                 <p>Product 4</p>
-                <p>$49.99</p>
+                <p>$89.99</p>
             </div>
         </div>
     </section>
@@ -234,19 +209,23 @@
         </ul>
     </footer>
 
+    <!-- JavaScript for Banner Slideshow -->
     <script>
-        let currentBanner = 0;
-        const banners = document.querySelectorAll('.banner-slide');
-        const totalBanners = banners.length;
+        let index = 0;
+        const images = document.querySelectorAll('.carousel img');
 
-        function showNextBanner() {
-            banners[currentBanner].classList.add('hide');
-            currentBanner = (currentBanner + 1) % totalBanners;
-            banners[currentBanner].classList.remove('hide');
+        function slide() {
+            images.forEach((img, i) => {
+                img.classList.add('hide'); // Hide all images
+                if (i === index) {
+                    img.classList.remove('hide'); // Show current image
+                }
+            });
+
+            index = (index + 1) % images.length; // Loop through images
         }
 
-        setInterval(showNextBanner, 3000); // Change banner every 3 seconds
+        setInterval(slide, 3000); // Change image every 3 seconds
     </script>
-
 </body>
                 </html>
