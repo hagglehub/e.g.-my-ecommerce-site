@@ -49,29 +49,6 @@
             margin-top: 10px;
         }
 
-        /* Banner Section */
-        .banner {
-            width: 100%;
-            height: 400px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .carousel img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            position: absolute;
-            transition: opacity 1s ease-in-out;
-        }
-
-        .carousel img.hidden {
-            opacity: 0;
-        }
-
         /* Featured Products Section */
         .featured-products {
             padding: 20px;
@@ -79,26 +56,31 @@
         }
 
         .product-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr); /* 2 products per row */
-            gap: 0px;
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
             padding: 0 20px;
             margin-bottom: 60px; /* Ensures space for the bottom icons */
+        }
+
+        .product-left, .product-right {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 48%; /* Allows two columns side by side */
         }
 
         .product-item {
             border: 1px solid #ddd;
             border-radius: 10px;
-            padding: 20px;
+            padding: 15px;
             background-color: #fff;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            width: 150%; /* Adjusted width to make product slots slightly wider */
-            margin: 0 auto; /* Center the product items */
         }
 
         .product-item img {
             width: 100%;
-            height: 220px; /* Slightly increased height for better visibility */
+            height: 200px;
             object-fit: cover;
             border-radius: 10px;
         }
@@ -106,16 +88,11 @@
         .product-item p {
             font-size: 18px;
             margin: 10px 0;
-            word-wrap: break-word; /* Ensures long names break into the next line */
-            text-align: center; /* Center-align the product name */
         }
 
         .product-item span {
             font-size: 20px;
             color: #333;
-            font-weight: bold;
-            text-align: center;
-            display: block;
         }
 
         /* Footer Section (Bottom Icons) */
@@ -163,39 +140,36 @@
         </div>
     </header>
 
-    <!-- Banner Section (Carousel) -->
-    <section class="banner">
-        <div class="carousel">
-            <img src="images/b1.jpg" alt="Banner 1" class="banner-image">
-            <img src="images/b2.jpg" alt="Banner 2" class="banner-image hidden">
-            <img src="images/b3.jpg" alt="Banner 3" class="banner-image hidden">
-            <img src="images/b4.jpg" alt="Banner 4" class="banner-image hidden">
-        </div>
-    </section>
-
     <!-- Featured Products Section -->
     <section class="featured-products">
         <h2>Featured Products</h2>
         <div class="product-grid">
-            <div class="product-item">
-                <img src="images/p1.jpg" alt="Product 1">
-                <p>Product 1</p>
-                <span>$99.99</span>
+            <!-- Left Section Products -->
+            <div class="product-left">
+                <div class="product-item">
+                    <img src="images/p1.jpg" alt="Product 1">
+                    <p>Product 1</p>
+                    <span>$99.99</span>
+                </div>
+                <div class="product-item">
+                    <img src="images/p2.jpg" alt="Product 2">
+                    <p>Product 2</p>
+                    <span>$79.99</span>
+                </div>
             </div>
-            <div class="product-item">
-                <img src="images/p2.jpg" alt="Product 2">
-                <p>Product 2</p>
-                <span>$79.99</span>
-            </div>
-            <div class="product-item">
-                <img src="images/p3.jpg" alt="Product 3">
-                <p>Product 3</p>
-                <span>$59.99</span>
-            </div>
-            <div class="product-item">
-                <img src="images/p4.jpg" alt="Product 4">
-                <p>Product 4</p>
-                <span>$49.99</span>
+
+            <!-- Right Section Products -->
+            <div class="product-right">
+                <div class="product-item">
+                    <img src="images/p3.jpg" alt="Product 3">
+                    <p>Product 3</p>
+                    <span>$59.99</span>
+                </div>
+                <div class="product-item">
+                    <img src="images/p4.jpg" alt="Product 4">
+                    <p>Product 4</p>
+                    <span>$49.99</span>
+                </div>
             </div>
         </div>
     </section>
@@ -208,18 +182,5 @@
         <a href="#"><i class="fas fa-history"></i><p>History</p></a>
     </section>
 
-    <script>
-        // Banner Sliding Script
-        let currentIndex = 0;
-        const banners = document.querySelectorAll('.carousel img');
-        
-        function showNextBanner() {
-            banners[currentIndex].classList.add('hidden');
-            currentIndex = (currentIndex + 1) % banners.length;
-            banners[currentIndex].classList.remove('hidden');
-        }
-
-        setInterval(showNextBanner, 3000); // Change every 3 seconds
-    </script>
 </body>
-                </html>
+</html>
