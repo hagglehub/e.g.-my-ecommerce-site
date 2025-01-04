@@ -208,31 +208,89 @@
             <li><a href="#">My Orders</a></li>
             <li><a href="#">Wishlist</a></li>
             <li><a href="#">Contact</a></li>
-        </ul>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: -250px; /* Start off the screen */
+            width: 250px;
+            height: 100%;
+            background-color: #002855;
+            color: #fff;
+            transition: 0.3s ease; /* Smooth transition for sliding */
+            padding-top: 60px;
+        }
+
+        .sidebar a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidebar a:hover {
+            color: #f1f1f1;
+        }
+
+        /* Hamburger Menu */
+        .hamburger-menu {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            cursor: pointer;
+        }
+
+        .hamburger-menu i {
+            font-size: 30px;
+            color: #333;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Hamburger Menu -->
+    <div class="hamburger-menu" onclick="toggleSidebar()">
+        <i class="fas fa-bars"></i>
     </div>
 
-    <!-- Page Content -->
-    <div class="content">
-        <h1>Welcome to The H Hub!</h1>
-        <p>Your content goes here...</p>
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <a href="#">Home</a>
+        <a href="#">Shop</a>
+        <a href="#">My Orders</a>
+        <a href="#">Wishlist</a>
+        <a href="#">Contact</a>
     </div>
 
-    <!-- Sidebar Toggle Script -->
     <script>
+        // Sidebar Toggle Script
         function toggleSidebar() {
             const sidebar = document.getElementById('sidebar');
-            // Toggle the sidebar by changing its position
-            if (sidebar.style.left === '-250px') {
-                sidebar.style.left = '0'; // Slide in
+            const currentLeft = sidebar.style.left;
+            if (currentLeft === '0px') {
+                sidebar.style.left = '-250px'; // Move sidebar off-screen
             } else {
-                sidebar.style.left = '-250px'; // Slide out
+                sidebar.style.left = '0'; // Show sidebar
             }
         }
     </script>
-
-</body>
-</html>
-
 </body>
 </html>
     <!-- Header Section -->
