@@ -144,7 +144,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The H Hub</title>
+    <title>Hamburger Menu</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
         /* Basic Reset */
@@ -202,22 +202,12 @@
         /* Close button for Sidebar */
         .close-btn {
             position: absolute;
-            top: 0;
+            top: 20px;
             right: 25px;
             font-size: 36px;
             color: white;
             cursor: pointer;
         }
-
-        /* Menu Items */
-        .sidebar h1 {
-            font-size: 24px;
-            color: white;
-            margin: 20px 0;
-            text-align: center;
-            font-family: 'Arial', sans-serif;
-        }
-
     </style>
 </head>
 <body>
@@ -230,7 +220,6 @@
     <!-- Sidebar -->
     <div class="sidebar" id="sidebar">
         <span class="close-btn" onclick="closeSidebar()">&times;</span>
-        <h1>The H Hub</h1>
         <a href="#">Home</a>
         <a href="#">Shop</a>
         <a href="#">My Orders</a>
@@ -241,18 +230,17 @@
     <script>
         // Function to open the sidebar
         function toggleSidebar() {
-            document.getElementById("sidebar").style.width = "250px";
+            document.getElementById("sidebar").style.width = "250px"; // Opens the sidebar
         }
 
         // Function to close the sidebar
         function closeSidebar() {
-            document.getElementById("sidebar").style.width = "0";
+            document.getElementById("sidebar").style.width = "0"; // Closes the sidebar
         }
     </script>
 
 </body>
 </html>
-
     <!-- Header Section -->
     <header>
         <div class="logo">
